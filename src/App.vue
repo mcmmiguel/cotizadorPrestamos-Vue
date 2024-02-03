@@ -35,9 +35,15 @@
     <Header />
 
     <div class="flex justify-between mt-10">
-      <Button :operador="'-'" :fn="handleChangeDecremento"/>
+      <Button 
+        :operador="'-'" 
+        @fn="handleChangeDecremento"
+      />
       
-      <Button :operador="'+'" :fn="handleChangeIncremento"/>
+      <Button 
+        :operador="'+'" 
+        @fn="handleChangeIncremento"
+      />
     </div>
 
     <div class="my-5">
