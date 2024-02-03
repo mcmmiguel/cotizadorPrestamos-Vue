@@ -14,14 +14,40 @@
       currency: 'USD',
     });
 
-    return formatter.format(cantidad.value)
+    return formatter.format(cantidad.value);
   });
+
+  const handleChangeDecremento = (e) => {
+    if(cantidad.value <= minCantidad) return;
+    cantidad.value -= stepCantidad;
+  }
+  
+  const handleChangeIncremento = (e) => {
+    if(cantidad.value >= maxCantidad) return;
+    cantidad.value += stepCantidad;
+  }
 
 </script>
 
 <template>
   <div class="my-20 max-w-lg mx-auto bg-white shadow p-10">
     <Header />
+
+    <div class="flex justify-between mt-10">
+      <button 
+        class="h-10 w-10 flex items-center justify-center font-bold bg-lime-500 rounded-full hover:outline-none hover:ring-2 hover:ring-offset-2 hover:ring-lime-500 text-white text-2xl"
+        @click="handleChangeDecremento"
+      >
+        -
+      </button>
+      
+      <button 
+        class="h-10 w-10 flex items-center justify-center font-bold bg-lime-500 rounded-full hover:outline-none hover:ring-2 hover:ring-offset-2 hover:ring-lime-500 text-white text-2xl"
+        @click="handleChangeIncremento"
+      >
+        +
+      </button>
+    </div>
 
     <div class="my-5">
       <input 
