@@ -23,6 +23,10 @@
 
   watch([cantidad, meses], () => {
     total.value = calcularTotalPagar(cantidad.value, meses.value);
+  });
+
+  const pagoMensual = computed(() => {
+    return total.value / meses.value;
   })
 
   const handleChangeDecremento = (e) => {
@@ -85,11 +89,11 @@
       </h2>
       <p class="text-xl text-gray-500 text-center font-bold">{{meses}} Meses</p>
       <p class="text-xl text-gray-500 text-center font-bold">Total a pagar: {{formatearDinero(total)}}</p>
-      <p class="text-xl text-gray-500 text-center font-bold">Mensuales</p>
+      <p class="text-xl text-gray-500 text-center font-bold">{{formatearDinero(pagoMensual)}} Mensuales</p>
     </div>
 
     <p v-else class="text-center">Añade una cantidad y un plazo a pagar</p>
-    
+
   </div>
 </template>
 
