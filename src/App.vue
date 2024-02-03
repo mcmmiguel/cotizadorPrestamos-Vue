@@ -2,6 +2,7 @@
   import {ref, computed} from 'vue';
   import Header from './components/Header.vue';
   import Button from './components/Button.vue';
+  import {calcularTotalPagar} from './helpers/index.js';
 
   const minCantidad = 0;
   const maxCantidad = 20000;
@@ -9,15 +10,16 @@
 
   const cantidad = ref(10000);
   const meses = ref(6);
+  const total = ref(calcularTotalPagar(cantidad.value, meses.value));
 
-  const formatearDinero = computed( () => {
+  const formatearDinero = (valor) => {
     const formatter = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
     });
 
-    return formatter.format(cantidad.value);
-  });
+    return formatter.format(valor);
+  };
 
   const handleChangeDecremento = (e) => {
     if(cantidad.value <= minCantidad) return;
@@ -56,7 +58,7 @@
         :step="stepCantidad"
         v-model.number="cantidad"
         >
-      <p class="text-center my-10 text-5xl font-extrabold text-indigo-600">{{formatearDinero}}</p>
+      <p class="text-center my-10 text-5xl font-extrabold text-indigo-600">{{formatearDinero(cantidad)}}</p>
 
       <h2 class="text-2xl font-extrabold text-gray-500 text-center">
         Elige un <span class="text-indigo-600">plazo</span> a pagar
@@ -78,7 +80,7 @@
         Resumen <span class="text-indigo-600">de pagos</span>
       </h2>
       <p class="text-xl text-gray-500 text-center font-bold">{{meses}} Meses</p>
-      <p class="text-xl text-gray-500 text-center font-bold">Total a pagar: </p>
+      <p class="text-xl text-gray-500 text-center font-bold">Total a pagar: {{formatearDinero(total)}}</p>
       <p class="text-xl text-gray-500 text-center font-bold">Mensuales</p>
     </div>
   </div>
