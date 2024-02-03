@@ -7,10 +7,6 @@
   const stepCantidad = 100;
 
   const cantidad = ref(10000);
-
-  function handleChange(e) {
-    cantidad.value = Number(e.target.value);
-  }
 </script>
 
 <template>
@@ -19,13 +15,12 @@
 
     <div class="my-5">
       <input 
-        @input="handleChange" 
         class="w-full bg-gray-200 accent-lime-500 hover:accent-lime-600" 
-        :value="cantidad"
         type="range"
         :min="minCantidad"
         :max="maxCantidad"
         :step="stepCantidad"
+        v-model.number="cantidad"
         >
       {{ cantidad }}
     </div>
