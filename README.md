@@ -1,7 +1,16 @@
-# Vue 3 + Vite
+# Cotizador de Préstamos - Vue
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+¡Bienvenido al Cotizador de Préstamos! Esta aplicación, desarrollada con Vue y Tailwind, te permite cotizar préstamos al ingresar la cantidad y el plazo deseado. Obtendrás información sobre el total a pagar y la cantidad mensual.
 
-## Recommended IDE Setup
+## Tecnologías Utilizadas
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+El proyecto fue desarrollado principalmente utilizando las siguientes tecnologías:
+
+- Vue.js (v3.3.11)
+- Tailwind CSS (v3.4.1)
+- Vite (v5.0.8) para el desarrollo y la construcción del proyecto
+- Autoprefixer y PostCSS para el procesamiento de estilos
+
+## Despliegue
+
+La aplicación está desplegada y disponible en [https://dapper-sopapillas-0c9837.netlify.app/](https://dapper-sopapillas-0c9837.netlify.app/).
